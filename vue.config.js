@@ -1,6 +1,6 @@
 // vue.config.js
 const path = require('path')
-// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 function resolve (dir) {
   return path.join(__dirname, dir)
@@ -70,15 +70,15 @@ module.exports = {
   },
 
   configureWebpack: (config) => {
-    // config.externals = {
-    //   externals: {
-    //     vue: 'Vue',
-    //     'vue-router': 'VueRouter',
-    //     axios: 'axios',
-    //     vuex: 'Vuex'
-    //   }
-    // }
-    // config.plugins.push(new BundleAnalyzerPlugin())
+    config.externals = {
+      externals: {
+        vue: 'Vue',
+        'vue-router': 'VueRouter',
+        axios: 'axios',
+        vuex: 'Vuex'
+      }
+    }
+    config.plugins.push(new BundleAnalyzerPlugin())
   },
 
   // 是否为 Babel 或 TypeScript 使用 thread-loader。该选项在系统的 CPU 有多于一个内核时自动启用，仅作用于生产构建。
@@ -95,10 +95,7 @@ module.exports = {
     host: '0.0.0.0',
     port: 8088, // 端口号
     https: false, // https:{type:Boolean}
-    open: false, // 配置自动启动浏览器  open: 'Google Chrome'-默认启动谷歌
-
-    // 配置单个代理
-    // proxy: 'http://localhost:9000'
+    open: true, // 配置自动启动浏览器  open: 'Google Chrome'-默认启动谷歌
 
     // 配置多个代理
     proxy: {
