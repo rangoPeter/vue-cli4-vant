@@ -71,13 +71,12 @@ module.exports = {
 
   configureWebpack: (config) => {
     config.externals = {
-      externals: {
-        vue: 'Vue',
-        'vue-router': 'VueRouter',
-        axios: 'axios',
-        vuex: 'Vuex'
-      }
+      vue: 'Vue',
+      'vue-router': 'VueRouter',
+      axios: 'axios',
+      vuex: 'Vuex'
     }
+
     config.plugins.push(new BundleAnalyzerPlugin())
   },
 
